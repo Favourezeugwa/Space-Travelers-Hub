@@ -2,18 +2,15 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './Navigation.css';
-// import { LinkContainer } from 'react-router-bootstrap';
 import { NavLink } from 'react-router-dom';
 import Logo from './planet.png';
 
 function Navigation() {
-  const activeLink = ({ isActive }) => {
-    return {
-      color: isActive ? '#0d6efd' : '',
-      paddingBottom: isActive ? '0.25rem' : '',
-      borderBottom: isActive ? '3px solid #0d6efd' : '',
-    };
-  };
+  const activeLink = ({ isActive }) => ({
+    color: isActive ? '#0d6efd' : '',
+    paddingBottom: isActive ? '0.25rem' : '',
+    borderBottom: isActive ? '3px solid #0d6efd' : '',
+  });
 
   return (
     <Navbar bg="light" expand="lg" className="border-bottom py-3">

@@ -10,9 +10,9 @@ function App() {
     <>
       <Navigation />
       <Routes>
-        <Route exact path="/" component={<Rocket />} />
-        <Route path="/mission" component={<Mission />} />
-        <Route path="/myProfile" component={<MyProfile />} />
+        <Route exact path="/" element={<Rocket />} />
+        <Route path="/mission" element={<Mission />} />
+        <Route path="/myProfile" element={<MyProfile />} />
       </Routes>
     </>
   );

@@ -7,6 +7,14 @@ import { NavLink } from 'react-router-dom';
 import Logo from './planet.png';
 
 function Navigation() {
+  const activeLink = ({ isActive }) => {
+    return {
+      color: isActive ? '#0d6efd' : '',
+      paddingBottom: isActive ? '0.30rem' : '',
+      borderBottom: isActive ? '3px solid #0d6efd' : '',
+    };
+  };
+
   return (
     <Navbar bg="light" expand="lg" className="border-bottom py-3">
       <Container>
@@ -18,13 +26,13 @@ function Navigation() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link href="#rockets">
-              <NavLink to="/">Rockets</NavLink>
+              <NavLink style={activeLink} className="text-primary link" to="/">Rockets</NavLink>
             </Nav.Link>
             <Nav.Link href="#missions">
-              <NavLink to="/mission">Missions</NavLink>
+              <NavLink style={activeLink} className="text-primary link" to="/mission">Missions</NavLink>
             </Nav.Link>
             <Nav.Link href="#myProfile">
-              <NavLink to="/myProfile">My Profile</NavLink>
+              <NavLink style={activeLink} className="text-primary link" to="/myProfile">My Profile</NavLink>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

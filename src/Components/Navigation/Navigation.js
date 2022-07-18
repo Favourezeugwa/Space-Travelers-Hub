@@ -2,6 +2,8 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './Navigation.css';
+// import { LinkContainer } from 'react-router-bootstrap';
+import { NavLink } from 'react-router-dom';
 import Logo from './planet.png';
 
 function Navigation() {
@@ -15,9 +17,15 @@ function Navigation() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="#rockets">Rockets</Nav.Link>
-            <Nav.Link href="#missions">Missions</Nav.Link>
-            <Nav.Link href="#my profile">My profile</Nav.Link>
+            <Nav.Link href="#rockets">
+              <NavLink to="/">Rockets</NavLink>
+            </Nav.Link>
+            <Nav.Link href="#missions">
+              <NavLink to="/mission">Missions</NavLink>
+            </Nav.Link>
+            <Nav.Link href="#myProfile">
+              <NavLink to="/myProfile">My Profile</NavLink>
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

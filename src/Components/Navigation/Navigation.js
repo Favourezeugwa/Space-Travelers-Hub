@@ -10,7 +10,7 @@ function Navigation() {
   const activeLink = ({ isActive }) => {
     return {
       color: isActive ? '#0d6efd' : '',
-      paddingBottom: isActive ? '0.30rem' : '',
+      paddingBottom: isActive ? '0.25rem' : '',
       borderBottom: isActive ? '3px solid #0d6efd' : '',
     };
   };

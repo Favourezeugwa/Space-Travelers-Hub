@@ -3,7 +3,7 @@ import RocketList from './RocketList';
 import rocket from './rocket.jpg';
 import './Rocket.css';
 
-const Rocket = () => {
+const RocketContainer = () => {
   const [rockets] = useState([
     {
       id: 1,
@@ -32,4 +32,4 @@ const Rocket = () => {
   );
 };
 
-export default Rocket;
+export default RocketContainer;

@@ -36,4 +36,5 @@ const missionSlice = createSlice({
   },
 });
 
-
+export const { JoinMission } = missionSlice.actions;
+export default missionSlice.reducer;

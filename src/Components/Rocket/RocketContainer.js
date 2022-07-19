@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Container } from 'react-bootstrap';
 import RocketList from './RocketList';
 import rocket from './rocket.jpg';
 import './Rocket.css';
@@ -26,9 +27,9 @@ const RocketContainer = () => {
   ]);
 
   return (
-    <div>
+    <Container>
       <RocketList rockets={rockets} />
-    </div>
+    </Container>
   );
 };
 

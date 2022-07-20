@@ -25,12 +25,18 @@ const RocketItem = (props) => {
   );
 };
 
+RocketItem.defaultProps = {
+  rocket: {},
+  name: '',
+  description: '',
+  images: '',
+};
+
 RocketItem.propTypes = {
-  rocket: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    images: PropTypes.string.isRequired,
-  }).isRequired,
+  rocket: PropTypes.instanceOf(Object),
+  name: PropTypes.string,
+  description: PropTypes.string,
+  images: PropTypes.string,
 };
 
 export default RocketItem;

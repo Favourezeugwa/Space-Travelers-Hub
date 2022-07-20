@@ -13,8 +13,6 @@ export const getMissionsData = createAsyncThunk(
       description: mission.description,
       canceled: false,
     }));
-    console.log(missionsData);
-
     return missionsData;
   },
 );

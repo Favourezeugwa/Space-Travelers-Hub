@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Table } from 'react-bootstrap';
-import { getMissionsData } from '../../redux/mission/missionSlice';
+import { Table, Container } from 'react-bootstrap';
+import { getMissionsData, JoinMission } from '../../redux/mission/missionSlice';
 import './Mission.css';
 
 function Mission() {
@@ -10,49 +10,70 @@ function Mission() {
     dispatch(getMissionsData());
   }, [dispatch, getMissionsData]);
   const missions = useSelector((state) => state.mission);
-  console.log(missions);
+
+  const handleJoinMission = ({ target }) => {
+    const { id } = target;
+    dispatch(JoinMission(id));
+  };
+
   return (
-    <Table striped bordered hover size="lg" className="container my-5">
-      <thead>
-        <tr>
-          <th>Mission</th>
-          <th>Description</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        {missions.map((mission) => (
-          <tr key={mission.id}>
-            <td>{mission.name}</td>
-            <td>{mission.description}</td>
-            <div className="btns">
-              <tr>
-                <button type="button" className="btn btn-secondary ms-3">
-                  NOT A MEMBER
-                </button>
-                <button type="button" className="btn btn-outline-dark ms-3">
-                  Join Mission
-                </button>
-              </tr>
-            </div>
+    <Container>
+      <Table striped bordered hover size="lg" className="container my-5">
+        <thead>
+          <tr>
+            <th>Mission</th>
+            <th>Description</th>
+            <th>Status</th>
           </tr>
-        ))}
-        {/* <tr>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <div className="btns">
-            <tr>
-              <button type="button" className="btn btn-info ms-3">
-                NOT A MEMBER
-              </button>
-              <button type="button" className="btn btn-outline-danger ms-3">
-                Join Mission
-              </button>
+        </thead>
+        <tbody>
+          {missions.map((mission) => (
+            <tr key={mission.id}>
+              <td>{mission.name}</td>
+              <td>{mission.description}</td>
+              <td>
+                {!mission.canceled ? (
+                  <div className="btns">
+                    <tr className="d-flex">
+                      <button
+                        type="button"
+                        className="btn btn-secondary text-white py-3"
+                      >
+                        NOT A MEMBER
+                      </button>
+                      <button
+                        id={mission.id}
+                        onClick={handleJoinMission}
+                        type="button"
+                        className="btn btn-outline-dark ms-3 py-3"
+                      >
+                        Join Mission
+                      </button>
+                    </tr>
+                  </div>
+                ) : (
+                  <div className="btns">
+                    <tr className="d-flex">
+                      <button type="button" className="btn btn-info text-white py-3">
+                        Active Member
+                      </button>
+                      <button
+                        id={mission.id}
+                        onClick={handleJoinMission}
+                        type="button"
+                        className="btn btn-outline-danger ms-3 px-3"
+                      >
+                        Leave Mission
+                      </button>
+                    </tr>
+                  </div>
+                )}
+              </td>
             </tr>
-          </div>
-        </tr> */}
-      </tbody>
-    </Table>
+          ))}
+        </tbody>
+      </Table>
+    </Container>
   );
 }
 

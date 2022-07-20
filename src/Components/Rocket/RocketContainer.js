@@ -1,30 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Container } from 'react-bootstrap';
 import RocketList from './RocketList';
-import rocket from './rocket.jpg';
+import { fetchRocketsData } from '../../redux/rocket/rocketSlice';
 import './Rocket.css';
 
 const RocketContainer = () => {
-  const [rockets] = useState([
-    {
-      id: 1,
-      name: 'Falcon 1',
-      description: 'The Falcom Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      images: rocket,
-    },
-    {
-      id: 2,
-      name: 'Falcon 2',
-      description: 'The tinj huf Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      images: rocket,
-    },
-    {
-      id: 3,
-      name: 'Falcon 3',
-      description: 'in Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      images: rocket,
-    },
-  ]);
+  // declare a global state variable for rocket and Store
+  const rockets = useSelector((state) => state.rocket);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchRocketsData());
+  }, []);
 
   return (
     <Container>

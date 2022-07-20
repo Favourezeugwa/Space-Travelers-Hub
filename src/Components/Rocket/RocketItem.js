@@ -1,25 +1,59 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
+import { Button, Badge } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { reserveRocket } from '../../redux/rocket/rocketSlice';
+import './Rocket.css';
 
 const RocketItem = (props) => {
   const { rocket } = props;
+
   const {
-    name, description, images,
+    id, name, description, images, reserved,
   } = rocket;
 
+  const dispatch = useDispatch();
+
+  const handleClick = ({ target }) => {
+    const { id } = target;
+    dispatch(reserveRocket(id));
+  };
+
   return (
-    <li className="d-flex my-3">
+    <li className="d-flex my-3" id={id}>
       <img src={images} alt="rocket flickr" className="rocket-img" />
       <div className="content px-3 py-5">
         <h3>{ name }</h3>
-        <p>{description}</p>
-        <Button
-          type="button"
-          variant="primary"
-        >
-          Reserve Rocket
-        </Button>
+
+        {!reserved ? (
+          <>
+            <p>{description}</p>
+            <Button
+              id={id}
+              type="button"
+              variant="primary"
+              onClick={handleClick}
+            >
+              Reserve Rocket
+            </Button>
+
+          </>
+        ) : (
+          <>
+            <p>
+              <Badge className="reserved">Reserved</Badge>
+              {description}
+            </p>
+            <Button
+              id={id}
+              type="button"
+              variant="outline-dark"
+              onClick={handleClick}
+            >
+              Cancel reservation
+            </Button>
+          </>
+        )}
       </div>
     </li>
   );

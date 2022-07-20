@@ -28,10 +28,10 @@ export const rocketSlice = createSlice({
   initialState,
   reducers: {
     reserveRocket: (state, action) => state.map((rocket) => {
-      if (rocket.id !== action.id) {
-        return rocket;
+      if (rocket.id === action.payload) {
+        return { ...rocket, reserved: !rocket.reserved };
       }
-      return { ...rocket, reserved: !rocket.reserved };
+      return rocket;
     }),
   },
   extraReducers: {

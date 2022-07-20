@@ -1,9 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+const baseURL = 'https://api.spacexdata.com/v3/rockets';
+
 export const fetchRocketsData = createAsyncThunk(
   'rockets/fetchRocketsData',
   async () => {
-    const response = await fetch('https://api.spacexdata.com/v3/rockets');
+    const response = await fetch(baseURL);
 
     const data = await response.json();
 
@@ -26,14 +28,14 @@ export const rocketSlice = createSlice({
   initialState,
   reducers: {
     reserveRocket: (state, action) => state.map((rocket) => {
-      if (rocket.id === action.id) {
-        return { ...rocket, reserved: !rocket.reserved };
+      if (rocket.id !== action.id) {
+        return rocket;
       }
-      return rocket;
+      return { ...rocket, reserved: !rocket.reserved };
     }),
   },
   extraReducers: {
-    [fetchRocketsData.fulfilled]: (state, action) => action.payload,
+    [fetchRocketsData.fulfilled]: (_state, action) => action.payload,
   },
 });
 

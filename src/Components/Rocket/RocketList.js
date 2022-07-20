@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import PropTypes, { Array } from 'prop-types';
 import RocketItem from './RocketItem';

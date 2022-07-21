@@ -1,6 +1,7 @@
-/* eslint-disable max-len */
+/* eslint-disable react/require-default-props */
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
-import PropTypes, { Object } from 'prop-types';
+import PropTypes from 'prop-types';
 import RocketItem from './RocketItem';
 
 const RocketList = (props) => {
@@ -13,12 +14,8 @@ const RocketList = (props) => {
   );
 };
 
-RocketList.defaultProps = {
-  rockets: [],
-};
-
 RocketList.propTypes = {
-  rockets: PropTypes.instanceOf(Object),
+  rockets: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default RocketList;

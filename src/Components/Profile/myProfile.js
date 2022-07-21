@@ -8,7 +8,6 @@ const MyProfile = () => {
 
   const rockets = useSelector((state) => state.rocket);
   const filteredRockets = rockets.filter((rocket) => rocket.reserved === true);
-  console.log(filteredRockets);
 
   return (
     <Container className="d-flex justify-content-center mt-5">

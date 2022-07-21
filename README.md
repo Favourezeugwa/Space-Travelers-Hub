@@ -8,7 +8,7 @@
 
 ## Live Demo
 
-[link to live demo on Netlify](https://favour-math-magicians.netlify.app/)
+[Netlify](https://fari-space-travelers-hub.netlify.app/)
 
 ## Built With
 
@@ -40,7 +40,7 @@ $ npm start
 ### Open page in browser
 
 ```bash
-$ http://localhost:3001/
+$ http://localhost:3000/
 ```
 
 ## Authors
@@ -55,7 +55,7 @@ $ http://localhost:3001/
 
 - GitHub: [@githubridwan](https://github.com/ridwanediallo)
 - Twitter: [@twitterridwan](https://twitter.com/RidwaneD)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ridwan-diallo-9a1634193)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ridwan-diallo)
 
 ## 🤝 Contributing
 

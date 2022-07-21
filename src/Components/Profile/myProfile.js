@@ -1,18 +1,29 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-
 import { ListGroup, Container } from 'react-bootstrap';
 
-const MyProfile = () => (
-  <Container className="d-flex justify-content-center mt-5">
-    <ListGroup className="w-25 me-5">
-      <h2>My Mission</h2>
-      <ListGroup.Item>Cras justo odio</ListGroup.Item>
-    </ListGroup>
-    <ListGroup className="w-25">
-      <ListGroup.Item>Cras justo odio</ListGroup.Item>
-    </ListGroup>
-  </Container>
-);
+const MyProfile = () => {
+  const missions = useSelector((state) => state.mission);
+  const filteredMissions = missions.filter((mission) => mission.canceled === true);
+
+  return (
+    <Container className="d-flex justify-content-center mt-5">
+      <ListGroup className="w-25 me-5">
+        <h2>My Missions</h2>
+        {filteredMissions.length === 0 ? (
+          <p>Please would you like to join the mission with Favour!</p>
+        ) : (
+          filteredMissions.map((mission) => (
+            <ListGroup.Item key={mission.id}>{mission.name}</ListGroup.Item>
+          ))
+        )}
+      </ListGroup>
+      <ListGroup className="w-25">
+        <h2>My Rockets</h2>
+        <ListGroup.Item>Cras justo odio</ListGroup.Item>
+      </ListGroup>
+    </Container>
+  );
+};
 
 export default MyProfile;

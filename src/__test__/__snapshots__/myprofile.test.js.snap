@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test MyProfile renders correctly 1`] = `
+<div
+  className="d-flex justify-content-center mt-5 container"
+>
+  <div
+    className="w-25 me-5 list-group"
+    onKeyDown={[Function]}
+  >
+    <h2>
+      My Missions
+    </h2>
+    <p
+      className="text-danger"
+    >
+      Please would you like to join the mission with Favour?
+    </p>
+  </div>
+  <div
+    className="w-25 list-group"
+    onKeyDown={[Function]}
+  >
+    <h2>
+      My Rockets
+    </h2>
+    <p
+      className="text-danger"
+    >
+      Hey! Kindly pick a rocket.
+    </p>
+  </div>
+</div>
+`;

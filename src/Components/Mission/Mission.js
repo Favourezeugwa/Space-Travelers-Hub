@@ -4,11 +4,18 @@ import { Table, Container } from 'react-bootstrap';
 import { getMissionsData, JoinMission } from '../../redux/mission/missionSlice';
 import './Mission.css';
 
+let saveJoinedAPI = false;
+
 function Mission() {
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(getMissionsData());
+    if (saveJoinedAPI === false) {
+      saveJoinedAPI = true;
+      dispatch(getMissionsData());
+    }
   }, [dispatch, getMissionsData]);
+
   const missions = useSelector((state) => state.mission);
 
   const handleJoinMission = ({ target }) => {
